@@ -4,7 +4,9 @@ import logging
 import datetime
 
 def downloadData(url):
-    """Downloads the data"""
+    with urllib.request.urlopen(url) as response:
+        csv_data = response.read().decode('utf-8')
+    return csv_data
     pass
 
 def processData(file_content):
